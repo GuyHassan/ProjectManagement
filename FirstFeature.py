@@ -33,26 +33,3 @@ for dictItem in listOfDataBaseTeams:
     for details in dictItem:
         print(details,': ',dictItem[details])
     print('-'*150)
-# print(attributeDataBase)
-
-
-
-
-# import requests
-# import json
-#
-# for year in range(2018, 2016, -1):
-#     uri = 'http://api.football-data.org/v2/competitions/BL1/matches?season=' + str(year)
-#     headers = { 'X-Auth-Token': '50a1c314b27e45ee8184a31795fab8c1' }
-#     response = requests.get(uri, headers=headers)
-#     matches = response.json()['matches']
-#     #finishedMatches = filter(lambda match: match['status'] == 'FINISHED', matches)
-#     matchesUntilMatchdayX = filter(lambda match: match['matchday'] < 18, matches)
-#
-#     totalGoals = 0
-#     for match in matchesUntilMatchdayX:
-#       totalGoals += match['score']['fullTime']['homeTeam'] + match['score']['fullTime']['awayTeam']
-#
-#     print("Total goals scored in season " + str(year) + ": " + str(totalGoals))
-#     print("   That is an avg of " + str(round((float(totalGoals) / 18.0),2)) + " per matchday.")
-#     print("   and an avg of " + str(round((float(totalGoals) / len(matchesUntilMatchdayX)),2)) + " per game.")
