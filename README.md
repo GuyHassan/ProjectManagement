@@ -49,7 +49,7 @@ In order to run the test, use command line to enter the following command:
 python TestDrivenDevelopment.py
 ```
 If all tests passed, you should see this output:
-![image](https://github.com/GuyHassan/ProjectManagement/blob/master/pass%20test.jpeg)
+![image](https://github.com/GuyHassan/ProjectManagement/blob/master/images/pass%20test.jpeg )
 
 
 ## Using the application
@@ -59,5 +59,5 @@ python Feature_Sport_Data.py
 ```
 and the following output will be : 
 
-![image](https://github.com/GuyHassan/ProjectManagement/blob/master/output1.JPG )
-![image](https://github.com/GuyHassan/ProjectManagement/blob/master/output2.JPG )
+![image](https://github.com/GuyHassan/ProjectManagement/blob/master/images/output1.JPG)
+![image](https://github.com/GuyHassan/ProjectManagement/blob/master/images/output2.JPG)
