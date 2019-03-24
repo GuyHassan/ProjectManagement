@@ -34,7 +34,7 @@ blocks:
           - pycodestyle --ignore=E501,W605 *.py
           - echo "make lint"
 
-  - name: "Push Image To Heroku System"
+  - name: "Push Image To Heroku System "
     task:
       jobs:
       - name: Push to Heroku
