@@ -26,7 +26,7 @@ def connection_to_api_second_feature():
 
 
 def get_data_first_feature():
-    ()
+    connection_to_api_first_feature()
     list_of_data_base_teams = []
     for i in range(len(response)):
         attribute_data_base_teams = {'Name Country': '', 'Name League': '', 'Winner Of League': '',
@@ -70,23 +70,27 @@ def get_data_second_feature():
     list_of_data_base_top_player = list(reversed(list_of_data_base_top_player))
     return list_of_data_base_top_player
 
-# connection_to_api_first_feature()
-# list_of_data_base_teams = get_data_first_feature()
-# connection_to_api_second_feature()
-# list_of_data_base_top_player = getDataSecondFeature()
 
-# print('\n', '\t' * 9, 'List of all the teams who won the league Previous season sorted by number of games\n', '\t' * 9,
-#       '-' * 81)
-# for dictItem in list_of_data_base_teams:
-#     for details in dictItem:
-#         print("'",details,"'", ': ',"'",dictItem[details],"',")
-#     print('-' * 150)
-# print('\n','\t'*9,'List of 10 players most goals in a diffrent league sorted by number of goals\n','\t'*9,'-'*81)
-# for dictItem in list_of_data_base_top_player:
-#     for details in dictItem:
-#         if (details == 'Players'):
-#                 for j in dictItem['Players']:
-#                     print("'",j,"'",': ',"'",dictItem['Players'][j],"',")
-#         else:
-#             print("'",details,"'",': ',"'",dictItem[details],"',")
-#     print('*'*150)
+# connection_to_api_first_feature()
+list_of_data_base_teams = get_data_first_feature()
+# connection_to_api_second_feature()
+list_of_data_base_top_player = get_data_second_feature()
+
+print('\n', '\t' * 9,
+      'First Feature : List of all the teams who won the league Previous season sorted by number of games\n', '\t' * 9,
+      '-' * 95)
+for dictItem in list_of_data_base_teams:
+    for details in dictItem:
+        print("'", details, "'", ': ', "'", dictItem[details], "',")
+    print('-' * 150)
+
+print('\n', '\t' * 9, 'Second Feature : List of 10 players most goals in a diffrent league sorted by number of goals\n',
+      '\t' * 9, '-' * 95)
+for dictItem in list_of_data_base_top_player:
+    for details in dictItem:
+        if (details == 'Players'):
+            for j in dictItem['Players']:
+                print("'", j, "'", ': ', "'", dictItem['Players'][j], "',")
+        else:
+            print("'", details, "'", ': ', "'", dictItem[details], "',")
+    print('*' * 150)

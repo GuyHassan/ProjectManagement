@@ -29,7 +29,7 @@ blocks:
         commands:
           - python -m unittest TestDrivenDevelopment.py
           - echo "Unit tests"
-      - name: Lint code
+      - name: Linter code
         commands:
           - pycodestyle --ignore=E501,W605 *.py
           - echo "make lint"
@@ -37,7 +37,7 @@ blocks:
   - name: "Push Image To Heroku System"
     task:
       jobs:
-      - name: Push
+      - name: Push Heroku
         commands:
           - checkout
           - echo "Push Image"
