@@ -21,6 +21,7 @@ def connectionToApiSecondFeature():
         connection.request('GET', '/v2/competitions/' + listOfNameLeauge[i] + '/scorers', None, headers)
         responseScorers.append(json.loads(connection.getresponse().read().decode()))
 def getDataFirstFeature():
+    connectionToApiFirstFeature()
     listOfDataBaseTeams = []
     for i in range(len(response)):
         attributeDataBaseTeams = {'Name Country': '', 'Name League': '', 'Winner Of League': '', 'Start Of Season': '',
@@ -39,6 +40,7 @@ def getDataFirstFeature():
     return sorted(listOfDataBaseTeams, key=lambda i: i['Amount Of Match'])  # we sort by amount of games
 
 def getDataSecondFeature():
+    connectionToApiSecondFeature()
     listOfDataBaseTopPlayer = []
     for i in range(len(responseScorers)):
         attributeDataBaseTopPlayer = {'Name Country': '', 'Name League': '', 'Players': ''}
@@ -61,23 +63,23 @@ def getDataSecondFeature():
     listOfDataBaseTopPlayer = list(reversed(listOfDataBaseTopPlayer))
     return listOfDataBaseTopPlayer
 
-connectionToApiFirstFeature()
-listOfDataBaseTeams = getDataFirstFeature()
-connectionToApiSecondFeature()
-listOfDataBaseTopPlayer = getDataSecondFeature()
+# connectionToApiFirstFeature()
+# listOfDataBaseTeams = getDataFirstFeature()
+# connectionToApiSecondFeature()
+# listOfDataBaseTopPlayer = getDataSecondFeature()
 
-print('\n', '\t' * 9, 'List of all the teams who won the league Previous season sorted by number of games\n', '\t' * 9,
-      '-' * 81)
-for dictItem in listOfDataBaseTeams:
-    for details in dictItem:
-        print("'",details,"'", ': ',"'",dictItem[details],"',")
-    print('-' * 150)
-print('\n','\t'*9,'List of 10 players most goals in a diffrent league sorted by number of goals\n','\t'*9,'-'*81)
-for dictItem in listOfDataBaseTopPlayer:
-    for details in dictItem:
-        if (details == 'Players'):
-                for j in dictItem['Players']:
-                    print("'",j,"'",': ',"'",dictItem['Players'][j],"',")
-        else:
-            print("'",details,"'",': ',"'",dictItem[details],"',")
-    print('*'*150)
+# print('\n', '\t' * 9, 'List of all the teams who won the league Previous season sorted by number of games\n', '\t' * 9,
+#       '-' * 81)
+# for dictItem in listOfDataBaseTeams:
+#     for details in dictItem:
+#         print("'",details,"'", ': ',"'",dictItem[details],"',")
+#     print('-' * 150)
+# print('\n','\t'*9,'List of 10 players most goals in a diffrent league sorted by number of goals\n','\t'*9,'-'*81)
+# for dictItem in listOfDataBaseTopPlayer:
+#     for details in dictItem:
+#         if (details == 'Players'):
+#                 for j in dictItem['Players']:
+#                     print("'",j,"'",': ',"'",dictItem['Players'][j],"',")
+#         else:
+#             print("'",details,"'",': ',"'",dictItem[details],"',")
+#     print('*'*150)
