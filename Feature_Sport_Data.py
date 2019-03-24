@@ -7,7 +7,6 @@ listOfNameLeauge = ['PL', 'PD', 'PPL', 'DED', 'BL1', 'FL1', 'SA']
 response = []
 responseScorers = []
 
-
 def connectionToApiFirstFeature():
     connection = http.client.HTTPConnection('api.football-data.org')
     headers = {'X-Auth-Token': '50a1c314b27e45ee8184a31795fab8c1'}
@@ -15,15 +14,12 @@ def connectionToApiFirstFeature():
         connection.request('GET', '/v2/competitions/' + listOfNameLeauge[i], None, headers)
         response.append(json.loads(connection.getresponse().read().decode()))
 
-
 def connectionToApiSecondFeature():
     connection = http.client.HTTPConnection('api.football-data.org')
     headers = {'X-Auth-Token': '276d39f355844de0ba7b1f7aa4474415'}
     for i in range(len(listOfNameLeauge)):
         connection.request('GET', '/v2/competitions/' + listOfNameLeauge[i] + '/scorers', None, headers)
         responseScorers.append(json.loads(connection.getresponse().read().decode()))
-
-
 def getDataFirstFeature():
     connectionToApiFirstFeature()
     listOfDataBaseTeams = []
@@ -41,11 +37,7 @@ def getDataFirstFeature():
                 attributeDataBaseTeams['End Of Season'] = response[i][j][1]['endDate']
                 attributeDataBaseTeams['Winner Of League'] = response[i][j][1]['winner']['name']
         listOfDataBaseTeams.append(attributeDataBaseTeams)
-    if (listOfDataBaseTeams != None):
-        return sorted(listOfDataBaseTeams, key=lambda i: i['Amount Of Match'])  # we sort by amount of games
-    else:
-        return None
-
+    return sorted(listOfDataBaseTeams, key=lambda i: i['Amount Of Match'])  # we sort by amount of games
 
 def getDataSecondFeature():
     connectionToApiSecondFeature()
@@ -70,7 +62,6 @@ def getDataSecondFeature():
     listOfDataBaseTopPlayer = sorted(listOfDataBaseTopPlayer, key=lambda i: i['Players']['Number Of Goals'])
     listOfDataBaseTopPlayer = list(reversed(listOfDataBaseTopPlayer))
     return listOfDataBaseTopPlayer
-
 
 # connectionToApiFirstFeature()
 # listOfDataBaseTeams = getDataFirstFeature()
