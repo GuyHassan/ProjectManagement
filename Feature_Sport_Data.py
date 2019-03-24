@@ -95,7 +95,6 @@ def get_data_second_feature():
     return list_of_data_base_top_player
 
 
-
 list_of_data_base_teams = get_data_first_feature()
 list_of_data_base_top_player = get_data_second_feature()
 
