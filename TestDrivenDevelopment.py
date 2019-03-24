@@ -69,6 +69,9 @@ class TDD(unittest.TestCase):
             for j in range(i + 1, len(listOfData)):
                 self.assertNotEqual(listOfData[i]['Name League'], listOfData[j]['Name League'],
                                     'Cannot be 2 player in same league')
+    def test_amountOfGoals(self):
+        pass
+
 
 
 if __name__ == '__main__':
