@@ -58,7 +58,7 @@ class TDD(unittest.TestCase):
         listOfData = mock()
         for i in range(len(listOfData)):
             for j in range(i+1,len(listOfData)):
-                self.assertGreaterEqual(listOfData[i][''])
+                self.assertGreaterEqual(listOfData[i]['Players']['Date'])
         
 
 if __name__ == '__main__':
