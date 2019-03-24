@@ -10,7 +10,7 @@ class TDD(unittest.TestCase):
 
     @patch('Feature_Sport_Data.getDataFirstFeature')
     def mockConnectionFirstFeature(self, mock):
-        mock.return_value = LocalData.firstFeatureData
+        mock.return_value = LocalData.first_feature_data
         return mock()
 
     @patch('Feature_Sport_Data.getDataFirstFeature')
@@ -90,7 +90,7 @@ class TDD(unittest.TestCase):
                 self.assertGreater(today.year - int(playerDate[0]), 16)
 
     @patch('Feature_Sport_Data.getDataSecondFeature')
-    def test_NumberOfGoalGreaterThanZero(self,mock):
+    def test_NumberOfGoalGreaterThanZero(self, mock):
         listofdata = self.mockConnectionSecondFeature()
         for i in range(len(listofdata)):
             self.assertGreater(int(listofdata[i]['Players']['Number Of Goals']), 0)

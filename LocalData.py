@@ -1,4 +1,4 @@
-firstFeatureData = [
+first_feature_data = [
     {'Name Country': 'Portugal',
      'Name League': 'Primeira Liga',
      'Winner Of League': 'FC Porto',

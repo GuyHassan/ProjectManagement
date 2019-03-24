@@ -31,6 +31,7 @@ blocks:
           - echo "Unit tests"
       - name: Lint code
         commands:
+          - pycodestyle --ignore=E501,W605 *.py
           - echo "make lint"
 
   - name: "Push Image To Heroku"
