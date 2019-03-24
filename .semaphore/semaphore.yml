@@ -31,13 +31,13 @@ blocks:
           - echo "Unit tests"
       - name: Lint code
         commands:
-          - pycodestyle *.py
           - echo "make lint"
 
-  - name: "Push Image TO Heroku"
+  - name: "Push Image To Heroku"
     task:
       jobs:
       - name: Push
         commands:
           - checkout
           - echo "Push Image"
+          - git push https://heroku:ed95ff50-daea-49c6-a239-bd024c2f8691@git.heroku.com/infinite-crag-35654.git master

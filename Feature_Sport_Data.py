@@ -1,7 +1,8 @@
 import http.client
 import json
 
-# this is list with all name of league that include our api - PL(EnglandLeague) ,PD(SpainLeague),PPL(PortugalLeague),DED(NetherlandLeague),
+# this is list with all name of league that include our api
+# - PL(EnglandLeague) ,PD(SpainLeague),PPL(PortugalLeague),DED(NetherlandLeague),
 # BL1(GermanyLeague),FL1(FranceLeague),SA(ItalyLeague) .
 listOfNameLeauge = ['PL', 'PD', 'PPL', 'DED', 'BL1', 'FL1', 'SA']
 response = []
