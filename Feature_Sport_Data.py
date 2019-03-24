@@ -1,3 +1,11 @@
+"""
+Student 1 : Guy Hassan
+ID 1:307845032
+Student 2 : Yahav Mizrahi
+ID 2: 305759185
+Student 3 : Yinon Hirari
+ID 3 : 203409024
+"""
 import http.client
 import json
 
@@ -10,6 +18,9 @@ responseScorers = []
 
 
 def connection_to_api_first_feature():
+    """
+    connection to our api and get the first request and append to response the data
+    """
     connection = http.client.HTTPConnection('api.football-data.org')
     headers = {'X-Auth-Token': '50a1c314b27e45ee8184a31795fab8c1'}
     for i in range(len(list_of_name_leauge)):
@@ -18,6 +29,9 @@ def connection_to_api_first_feature():
 
 
 def connection_to_api_second_feature():
+    """
+    connection to our api and get the second request and append to responseScorers the data
+    """
     connection = http.client.HTTPConnection('api.football-data.org')
     headers = {'X-Auth-Token': '276d39f355844de0ba7b1f7aa4474415'}
     for i in range(len(list_of_name_leauge)):
@@ -26,6 +40,11 @@ def connection_to_api_second_feature():
 
 
 def get_data_first_feature():
+    """
+        this function create the first feature , he call to football api , and we arrange it to modify to our feature
+        this feature is : give us the top league of each league and sort this for us by amount of games
+        :return: dict with all our feature
+        """
     connection_to_api_first_feature()
     list_of_data_base_teams = []
     for i in range(len(response)):
@@ -47,6 +66,11 @@ def get_data_first_feature():
 
 
 def get_data_second_feature():
+    """
+    this function create the second feature , he call to football api , and we arrange it to modify to our feature
+    this feature is : give us the top scorers sorting by amount goals
+    :return: dict with all our feature
+    """
     connection_to_api_second_feature()
     list_of_data_base_top_player = []
     for i in range(len(responseScorers)):
@@ -71,21 +95,20 @@ def get_data_second_feature():
     return list_of_data_base_top_player
 
 
-# connection_to_api_first_feature()
+
 list_of_data_base_teams = get_data_first_feature()
-# connection_to_api_second_feature()
 list_of_data_base_top_player = get_data_second_feature()
 
-print('\n', '\t' * 9,
-      'First Feature : List of all the teams who won the league Previous season sorted by number of games\n', '\t' * 9,
+print('\n', '\t' * 2,
+      'First Feature : List of all the teams who won the league Previous season sorted by number of games\n', '\t' * 2,
       '-' * 95)
 for dictItem in list_of_data_base_teams:
     for details in dictItem:
         print("'", details, "'", ': ', "'", dictItem[details], "',")
     print('-' * 150)
 
-print('\n', '\t' * 9, 'Second Feature : List of 10 players most goals in a diffrent league sorted by number of goals\n',
-      '\t' * 9, '-' * 95)
+print('\n', '\t' * 2, 'Second Feature : List of 10 players most goals in a diffrent league sorted by number of goals\n',
+      '\t' * 2, '-' * 95)
 for dictItem in list_of_data_base_top_player:
     for details in dictItem:
         if (details == 'Players'):

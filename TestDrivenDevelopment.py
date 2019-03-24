@@ -1,3 +1,11 @@
+"""
+Student 1 : Guy Hassan
+ID 1:307845032
+Student 2 : Yahav Mizrahi
+ID 2: 305759185
+Student 3 : Yinon Hirari
+ID 3 : 203409024
+"""
 import unittest
 import Feature_Sport_Data
 import LocalData
@@ -6,32 +14,49 @@ import re
 from datetime import date
 
 
-class TDD(unittest.TestCase):
+class TDD_Sport_Data(unittest.TestCase):
     @patch('Feature_Sport_Data.get_data_first_feature')
     def mockConnectionFirstFeature(self, mock):
+        """
+        :param mock: Data of feature 1
+        :return: func mock
+        """
         mock.return_value = LocalData.first_feature_data
         return mock()
 
     @patch('Feature_Sport_Data.get_data_second_feature')
     def mockConnectionSecondFeature(self, mock):
+        """
+        :param mock:Data of feature 2
+        :return: func mock
+        """
         mock.return_value = LocalData.second_feature_data
         return mock()
 
     # --------------------------Tests First Feature------------------------------------------
     @patch('Feature_Sport_Data.get_data_first_feature')
     def test_WinnerNameNotNone(self, mock):
+        """
+        Test 1: Check if the winner name team not None.
+        """
         listofdata = self.mockConnectionFirstFeature()
         for i in range(len(listofdata)):
             self.assertIsNotNone(listofdata[i]['Winner Of League'])
 
     @patch('Feature_Sport_Data.get_data_first_feature')
     def test_StartDateSmallerThanEndDate(self, mock):
+        """
+        Test 2: Check if the start date of the season befor the end date.
+        """
         listofdata = self.mockConnectionFirstFeature()
         for i in range(len(listofdata)):
             self.assertLess(listofdata[i]['Start Of Season'], listofdata[i]['End Of Season'])
 
     @patch('Feature_Sport_Data.get_data_first_feature')
     def test_AmountOfMatchIsSorted(self, mock):
+        """
+        Test 3: Check Sorted amount of match.
+        """
         listofdata = self.mockConnectionFirstFeature()
         for i in range(len(listofdata)):
             for j in range(i + 1, len(listofdata)):
@@ -40,6 +65,9 @@ class TDD(unittest.TestCase):
 
     @patch('Feature_Sport_Data.get_data_first_feature')
     def test_NameOfCountryIsUnique(self, mock):
+        """
+        Test 4: The league name appears once.
+        """
         listofdata = self.mockConnectionFirstFeature()
         for i in range(len(listofdata)):
             for j in range(i + 1, len(listofdata)):
@@ -47,6 +75,9 @@ class TDD(unittest.TestCase):
 
     @patch('Feature_Sport_Data.get_data_first_feature')
     def test_NumberOfWeeksGreaterOfMatches(self, mock):
+        """
+        Test 5: Check if number of weeks greater number of matches.
+        """
         listofdata = self.mockConnectionFirstFeature()
         for i in range(len(listofdata)):
             start = re.findall('\d+', (listofdata[i]['Start Of Season']))
@@ -59,6 +90,9 @@ class TDD(unittest.TestCase):
     # --------------------------------Tests Second Feature-----------------------------------------------------------------
     @patch('Feature_Sport_Data.get_data_second_feature')
     def test_ScorersIsSorted(self, mock):
+        """
+        Test 6: Check Sorted from best to good at least scores.
+        """
         listofdata = self.mockConnectionSecondFeature()
         for i in range(len(listofdata)):
             for j in range(i + 1, len(listofdata)):
@@ -67,12 +101,18 @@ class TDD(unittest.TestCase):
 
     @patch('Feature_Sport_Data.get_data_second_feature')
     def test_NamePlayerNotNone(self, mock):
+        """
+        Test 7: Check that name player not None.
+        """
         listofdata = self.mockConnectionSecondFeature()
         for i in range(len(listofdata)):
             self.assertIsNotNone(listofdata[i]['Players']['Name Player'])
 
     @patch('Feature_Sport_Data.get_data_second_feature')
     def test_NameTeamIsUnique(self, mock):
+        """
+        Test 8: Check the league appears once.
+        """
         listofdata = self.mockConnectionSecondFeature()
         for i in range(len(listofdata)):
             for j in range(i + 1, len(listofdata)):
@@ -81,6 +121,9 @@ class TDD(unittest.TestCase):
 
     @patch('Feature_Sport_Data.get_data_second_feature')
     def test_AgeOfPlayerGeatherThanSixteen(self, mock):
+        """
+        Test 9: Check the age of the player greater 16.
+        """
         listofdata = self.mockConnectionSecondFeature()
         for i in range(len(listofdata)):
             for j in range(i + 1, len(listofdata)):
@@ -90,6 +133,9 @@ class TDD(unittest.TestCase):
 
     @patch('Feature_Sport_Data.get_data_second_feature')
     def test_NumberOfGoalGreaterThanZero(self, mock):
+        """
+        Test 10: Check amount of golas greater 0.
+        """
         listofdata = self.mockConnectionSecondFeature()
         for i in range(len(listofdata)):
             self.assertGreater(int(listofdata[i]['Players']['Number Of Goals']), 0)

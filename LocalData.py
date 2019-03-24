@@ -1,3 +1,11 @@
+"""
+Student 1 : Guy Hassan
+ID 1:307845032
+Student 2 : Yahav Mizrahi
+ID 2: 305759185
+Student 3 : Yinon Hirari
+ID 3 : 203409024
+"""
 first_feature_data = [
     {'Name Country': 'Portugal',
      'Name League': 'Primeira Liga',
