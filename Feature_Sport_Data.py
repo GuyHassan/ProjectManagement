@@ -7,6 +7,7 @@ listOfNameLeauge = ['PL', 'PD', 'PPL', 'DED', 'BL1', 'FL1', 'SA']
 response = []
 responseScorers = []
 
+
 def connectionToApiFirstFeature():
     connection = http.client.HTTPConnection('api.football-data.org')
     headers = {'X-Auth-Token': '50a1c314b27e45ee8184a31795fab8c1'}
