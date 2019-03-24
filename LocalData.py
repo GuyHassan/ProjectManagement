@@ -48,7 +48,7 @@ first_feature_data = [
      'End Of Season': '2018-05-20',
      'Amount Of Match': '38'},
 ]
-SecondFeatureData = [
+second_feature_data = [
     {'Name Country': 'Spain',
      'Name League': 'Primera Division',
      'Players': {'Name Player': 'Lionel Messi',

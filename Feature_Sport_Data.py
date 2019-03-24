@@ -29,7 +29,8 @@ def get_data_first_feature():
     ()
     list_of_data_base_teams = []
     for i in range(len(response)):
-        attribute_data_base_teams = {'Name Country': '', 'Name League': '', 'Winner Of League': '', 'Start Of Season': '',
+        attribute_data_base_teams = {'Name Country': '', 'Name League': '', 'Winner Of League': '',
+                                     'Start Of Season': '',
                                      'End Of Season': '', 'Amount Of Match': ''}
         for j in response[i]:
             if (j == 'name'):
@@ -45,7 +46,7 @@ def get_data_first_feature():
     return sorted(list_of_data_base_teams, key=lambda i: i['Amount Of Match'])  # we sort by amount of games
 
 
-def getDataSecondFeature():
+def get_data_second_feature():
     connection_to_api_second_feature()
     list_of_data_base_top_player = []
     for i in range(len(responseScorers)):
@@ -55,14 +56,15 @@ def getDataSecondFeature():
                 attribute_data_base_top_player['Name League'] = responseScorers[i][j]['name']
                 attribute_data_base_top_player['Name Country'] = responseScorers[i][j]['area']['name']
             if (j == 'scorers'):
-                Player_details = {'Name Player': '', 'Position': '', 'Number Of Goals': '', 'Team He Play': '', 'Date Of Birth': '', 'Country Of Birth': ''}
-                Player_details['Name Player'] = responseScorers[i][j][0]['player']['name']
-                Player_details['Position'] = responseScorers[i][j][0]['player']['position']
-                Player_details['Date Of Birth'] = responseScorers[i][j][0]['player']['dateOfBirth']
-                Player_details['Country Of Birth'] = responseScorers[i][j][0]['player']['countryOfBirth']
-                Player_details['Number Of Goals'] = responseScorers[i][j][0]['numberOfGoals']
-                Player_details['Team He Play'] = responseScorers[i][j][0]['team']['name']
-                attribute_data_base_top_player['Players'] = Player_details
+                player_details = {'Name Player': '', 'Position': '', 'Number Of Goals': '', 'Team He Play': '',
+                                  'Date Of Birth': '', 'Country Of Birth': ''}
+                player_details['Name Player'] = responseScorers[i][j][0]['player']['name']
+                player_details['Position'] = responseScorers[i][j][0]['player']['position']
+                player_details['Date Of Birth'] = responseScorers[i][j][0]['player']['dateOfBirth']
+                player_details['Country Of Birth'] = responseScorers[i][j][0]['player']['countryOfBirth']
+                player_details['Number Of Goals'] = responseScorers[i][j][0]['numberOfGoals']
+                player_details['Team He Play'] = responseScorers[i][j][0]['team']['name']
+                attribute_data_base_top_player['Players'] = player_details
         list_of_data_base_top_player.append(attribute_data_base_top_player)
     list_of_data_base_top_player = sorted(list_of_data_base_top_player, key=lambda i: i['Players']['Number Of Goals'])
     list_of_data_base_top_player = list(reversed(list_of_data_base_top_player))
