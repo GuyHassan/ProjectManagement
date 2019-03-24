@@ -57,7 +57,7 @@ Run the program with the command (you can on  CL inside the directed file)
 ```
 python Feature_Sport_Data.py
 ```
-and the following output will be : 
+and the following output will be (part of the output): 
 
 ![image](https://github.com/GuyHassan/ProjectManagement/blob/master/output1.JPG )
 ![image](https://github.com/GuyHassan/ProjectManagement/blob/master/output2.JPG )
