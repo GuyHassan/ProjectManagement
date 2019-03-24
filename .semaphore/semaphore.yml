@@ -25,7 +25,7 @@ blocks:
           - sem-version python 3.7
           - pip install -r requirements.txt
       jobs:
-      - name: RSpec
+      - name: RSpec testing tool
         commands:
           - python -m unittest TestDrivenDevelopment.py
           - echo "Unit tests"
@@ -34,7 +34,7 @@ blocks:
           - pycodestyle --ignore=E501,W605 *.py
           - echo "make lint"
 
-  - name: "Push Image To Heroku"
+  - name: "Push Image To Heroku System"
     task:
       jobs:
       - name: Push
