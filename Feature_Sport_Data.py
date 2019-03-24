@@ -6,6 +6,8 @@ import json
 listOfNameLeauge = ['PL', 'PD', 'PPL', 'DED', 'BL1', 'FL1', 'SA']
 response = []
 responseScorers = []
+iny='ff'
+
 
 def connectionToApiFirstFeature():
     connection = http.client.HTTPConnection('api.football-data.org')
